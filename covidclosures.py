@@ -33,8 +33,12 @@ df.Cuisine_General().plot(kind='pie',colors = 'red','blue','green','orange','yel
 
 #Closures Frequency by ZIP Code  
 x = df.groupby(['ZIP']).size()
+x = x.sort_values(ascending=False)
 print(x)
 
+#Closures Frequency by Borough 
+x = df.groupby(['Borough']).size()
+print(x)                         
 
 #Returns a dataframe of JUST Chinese restaurants
 x = (df.loc[(df.Cuisine == 'Chinese') & (df.Type == "restaurant")])
