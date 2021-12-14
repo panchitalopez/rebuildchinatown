@@ -40,7 +40,19 @@ y = df.loc[df.Type == "restaurant"]
 j = x/y*100
 print (j) #j = 22.297297% of restaurants closed were Chinese restaurants.
 
+#Code to create folium map & markers 
+df = pd.read_csv('ult.csv')
+df = df[['Name','Lat','Long']]
+map = folium.Map(all_=[df.Lat.mean(), df.Long.mean()], zoom_start=10)
 
+df = pd.read_csv('ult.csv')
+df = df[['Name','Lat','Long']]
+map = folium.Map(all_=[df.Lat.mean(), df.Long.mean()], zoom_start=10)
 
+for i,j in df.iterrows():
+    folium.Marker([j['Lat'],j['Long']],popup=j['Name'],
+                  icon=folium.Icon(icon='green')
+                  ).add_to(map)
+map
 
 
