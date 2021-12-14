@@ -28,6 +28,9 @@ plt.xlabel('Count')
 plt.ylabel('Cuisine Type')
 plt.show()
 
+#Pie chart: 
+df.Cuisine_General().plot(kind='pie',colors = 'red','blue','green','orange','yellow', (figsize= 10,15), autopct='%1.1f%%)
+
 #Closures Frequency by ZIP Code  
 x = df.groupby(['ZIP']).size()
 print(x)
